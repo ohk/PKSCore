@@ -1,5 +1,5 @@
 import XCTest
-@testable import PKSCore
+@testable import PKSUICore
 
 final class PKSCoreTests: XCTestCase {
     func testExample() throws {
