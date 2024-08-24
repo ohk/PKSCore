@@ -4,21 +4,35 @@
 import PackageDescription
 
 let package = Package(
-    name: "PKSUICore",
-    platforms: [.macOS(.v11), .iOS(.v15), .tvOS(.v12), .watchOS(.v4), .visionOS(.v1)],
+    name: "PKSCore",
+    platforms: [.macOS(.v13), .iOS(.v16), .tvOS(.v12), .watchOS(.v4), .visionOS(.v1)],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "PKSUICore",
             targets: ["PKSUICore"]),
+        .library(
+            name: "PKSFoundation",
+            targets: ["PKSFoundation"])
     ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "PKSUICore"),
+            name: "PKSUICore",
+            dependencies: [
+                "PKSFoundation"
+            ],
+            path: "PKSUICore/Sources"
+        ),
+        .target(
+            name: "PKSFoundation",
+            dependencies: [],
+            path: "PKSFoundation/Sources"
+        ),
         .testTarget(
             name: "PKSUICoreTests",
-            dependencies: ["PKSUICore"]),
+            dependencies: ["PKSUICore", "PKSFoundation"]),
+        .testTarget(
+            name: "PKSFoundationTests",
+            dependencies: ["PKSFoundation"])
     ]
 )
