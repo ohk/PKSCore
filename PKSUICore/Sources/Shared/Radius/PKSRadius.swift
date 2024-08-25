@@ -14,4 +14,5 @@ public enum PKSRadius {
     case xl
     case xxl
     case full
+    case custom(radius: CGFloat)
 }
