@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-extension View {
+public extension View {
     /// Transforms the view into another view using a closure.
     ///
     /// Use the `map(_:)` function to apply a transformation to a view,
