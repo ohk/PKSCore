@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 13.0, *)
 public extension View {
     /// Transforms the view into another view using a closure.
     ///
