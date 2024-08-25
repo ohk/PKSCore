@@ -15,9 +15,17 @@ public class PKSUICoreConfiguration: ObservableObject {
     
     @Published public private(set) var avatarGlobalConfiguration: PKSAvatarConfiguration = PKSAvatarConfiguration()
     
+    @Published public private(set) var radiusConfiguration: RadiusConfiguration = RadiusConfiguration()
+
     public func updateAvatarGlobalConfiguration(_ conf: PKSAvatarConfiguration) {
         DispatchQueue.main.async { [weak self] in
             self?.avatarGlobalConfiguration = conf
+        }
+    }
+
+    public func updateRadiusConfiguration(_ conf: RadiusConfiguration) {
+        DispatchQueue.main.async { [weak self] in
+            self?.radiusConfiguration = conf
         }
     }
 }
