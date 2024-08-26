@@ -6,10 +6,19 @@
 //
 
 import SwiftUI
+import Nuke
 
-public class PKSUICoreConfiguration: ObservableObject {  
+public class PKSUICoreConfiguration: ObservableObject {
     
     public static let shared: PKSUICoreConfiguration = .init()
+    
+    public var imagePipeline: ImagePipeline = ImagePipeline {
+        $0.dataCachePolicy = .automatic
+        $0.isResumableDataEnabled = true
+        $0.isProgressiveDecodingEnabled = true
+        $0.isRateLimiterEnabled = true
+        $0.isTaskCoalescingEnabled = true
+    }
     
     public init() {}
     
@@ -27,5 +36,5 @@ public class PKSUICoreConfiguration: ObservableObject {
         DispatchQueue.main.async { [weak self] in
             self?.radiusConfiguration = conf
         }
-    }
+    }   
 }
