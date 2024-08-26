@@ -10,6 +10,9 @@ import Foundation
 @available(iOS 13.0, macOS 10.15, tvOS 13.0, watchOS 6.0, *)
 public enum PKSRadius: CaseIterable, Identifiable, Equatable {
 
+    /// A 0 corner radius.
+    case none
+
     /// A small corner radius.
     case sm
     
@@ -63,6 +66,8 @@ public enum PKSRadius: CaseIterable, Identifiable, Equatable {
             baseID += "FULL"
         case .custom(let radius):
             baseID += "CUSTOM\(radius)"
+        case .none:
+            baseID += "CUSTOM-0"
         }
         return baseID
     }
