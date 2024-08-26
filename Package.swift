@@ -10,16 +10,23 @@ let package = Package(
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "PKSUICore",
-            targets: ["PKSUICore"]),
+            targets: ["PKSUICore"]
+        ),
         .library(
             name: "PKSFoundation",
-            targets: ["PKSFoundation"])
+            targets: ["PKSFoundation"]
+        )
+    ],
+    dependencies: [
+        .package(url: "https://github.com/kean/Nuke.git", from: "12.8.0")
     ],
     targets: [
         .target(
             name: "PKSUICore",
             dependencies: [
-                "PKSFoundation"
+                .product(name: "Nuke", package: "Nuke"),
+                .product(name: "NukeUI", package: "Nuke"),
+                .target(name: "PKSFoundation")
             ],
             path: "PKSUICore/Sources"
         ),
