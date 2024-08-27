@@ -188,6 +188,12 @@ private extension PKSAvatar {
             let _ = print("bg",resolvedInitialsBackgroundColor)
             Rectangle()
                 .fill(resolvedInitialsBackgroundColor)
+                .clipShape(RoundedRectangle(cornerRadius: resolvedRadius))
+                .overlay {
+                    RoundedRectangle(cornerRadius: resolvedRadius)
+                        .stroke(resolvedBorderColor, lineWidth: resolvedBorderWidth)
+                }
+                .frame(width: resolvedSize.width, height: resolvedSize.height, alignment: .center)
             if let initials = avatar.initials {
                 let _ = print(resolvedInitialsForegroundColor)
                 Text(initials)
