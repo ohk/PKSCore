@@ -162,7 +162,7 @@ private extension PKSAvatar {
                 }
             }
         }
-        .pipeline(configuration.imagePipeline)
+        .pipeline(configuration.imageConfiguration.imagePipeline)
         .priority(priority ?? configuration.avatarGlobalConfiguration.priority)
     }
     
