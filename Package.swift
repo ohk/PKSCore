@@ -15,7 +15,8 @@ let package = Package(
         .library(
             name: "PKSFoundation",
             targets: ["PKSFoundation"]
-        )
+        ),
+        .library(name: "PKSNetwork", targets: ["PKSNetwork"])
     ],
     dependencies: [
         .package(url: "https://github.com/kean/Nuke.git", from: "12.8.0")
@@ -35,6 +36,14 @@ let package = Package(
             dependencies: [],
             path: "PKSFoundation/Sources"
         ),
+        .target(
+            name: "PKSNetwork",
+            dependencies: [
+                .target(name: "PKSFoundation")
+            ],
+            path: "PKSNetwork/Sources"
+        ),
+       
         .testTarget(
             name: "PKSUICoreTests",
             dependencies: ["PKSUICore", "PKSFoundation"]),
