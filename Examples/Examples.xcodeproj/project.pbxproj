@@ -21,6 +21,8 @@
 		C607D74D2C968A5300CBE912 /* TokenProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607D74C2C968A5300CBE912 /* TokenProvider.swift */; };
 		C607D74F2C968A6D00CBE912 /* PKSNetworkAsyncAwaitViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607D74E2C968A6D00CBE912 /* PKSNetworkAsyncAwaitViewModel.swift */; };
 		C607D7532C968B0700CBE912 /* Demos.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607D7522C968B0500CBE912 /* Demos.swift */; };
+		C607D7552C968E0700CBE912 /* PKSNetworkPublisherExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607D7542C968E0700CBE912 /* PKSNetworkPublisherExample.swift */; };
+		C607D7572C968EBC00CBE912 /* PKSNetworkPublisherViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C607D7562C968EBC00CBE912 /* PKSNetworkPublisherViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		C607D74C2C968A5300CBE912 /* TokenProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenProvider.swift; sourceTree = "<group>"; };
 		C607D74E2C968A6D00CBE912 /* PKSNetworkAsyncAwaitViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKSNetworkAsyncAwaitViewModel.swift; sourceTree = "<group>"; };
 		C607D7522C968B0500CBE912 /* Demos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demos.swift; sourceTree = "<group>"; };
+		C607D7542C968E0700CBE912 /* PKSNetworkPublisherExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKSNetworkPublisherExample.swift; sourceTree = "<group>"; };
+		C607D7562C968EBC00CBE912 /* PKSNetworkPublisherViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PKSNetworkPublisherViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,9 +141,9 @@
 		C607D7432C967E3B00CBE912 /* PKSNetwork */ = {
 			isa = PBXGroup;
 			children = (
+				C607D7582C968EE800CBE912 /* Publisher */,
 				C607D7502C968AAB00CBE912 /* Models */,
-				C607D7462C967E5B00CBE912 /* PKSNetworkAsyncAwaitExample.swift */,
-				C607D74E2C968A6D00CBE912 /* PKSNetworkAsyncAwaitViewModel.swift */,
+				C607D7592C968EEF00CBE912 /* AsyncAwait */,
 			);
 			path = PKSNetwork;
 			sourceTree = "<group>";
@@ -159,6 +163,24 @@
 				C607D74C2C968A5300CBE912 /* TokenProvider.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		C607D7582C968EE800CBE912 /* Publisher */ = {
+			isa = PBXGroup;
+			children = (
+				C607D7562C968EBC00CBE912 /* PKSNetworkPublisherViewModel.swift */,
+				C607D7542C968E0700CBE912 /* PKSNetworkPublisherExample.swift */,
+			);
+			path = Publisher;
+			sourceTree = "<group>";
+		};
+		C607D7592C968EEF00CBE912 /* AsyncAwait */ = {
+			isa = PBXGroup;
+			children = (
+				C607D7462C967E5B00CBE912 /* PKSNetworkAsyncAwaitExample.swift */,
+				C607D74E2C968A6D00CBE912 /* PKSNetworkAsyncAwaitViewModel.swift */,
+			);
+			path = AsyncAwait;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -298,8 +320,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C607D7572C968EBC00CBE912 /* PKSNetworkPublisherViewModel.swift in Sources */,
 				C607D7132C967DC000CBE912 /* ExamplesApp.swift in Sources */,
 				C607D7472C967E5B00CBE912 /* PKSNetworkAsyncAwaitExample.swift in Sources */,
+				C607D7552C968E0700CBE912 /* PKSNetworkPublisherExample.swift in Sources */,
 				C607D7492C968A3300CBE912 /* Todo.swift in Sources */,
 				C607D7532C968B0700CBE912 /* Demos.swift in Sources */,
 				C607D74D2C968A5300CBE912 /* TokenProvider.swift in Sources */,

@@ -16,11 +16,16 @@ struct Demos: View {
                 Button("Network Async Await") {
                     path.append("NetworkAsyncAwait")
                 }
+                Button("Network Publisher") {
+                    path.append("NetworkPublisher")
+                }
             }
             .navigationDestination(for: String.self) { destination in
                 switch destination {
                 case "NetworkAsyncAwait":
                     PKSNetworkAsyncAwaitExample()
+                case "NetworkPublisher":
+                    PKSNetworkPublisherExample()
                 default:
                     EmptyView()
                 }
