@@ -92,6 +92,70 @@ public class PKSNetworkURLSession: PKSNetwork {
         }
     }
     
+    /// Sends a network request without expecting any response data and returns a publisher with the status code.
+    ///
+    /// - Parameter request: The request to be sent.
+    /// - Returns: A publisher that emits the status code or an error.
+    public func send<P: Encodable>(_ request: PKSRequest<P>) -> AnyPublisher<Void, PKSNetworkError> {
+        return Future { promise in
+            Task {
+                do {
+                    let urlRequest = try await self.createURLRequest(from: request)
+                    let (_, response) = try await self.session.data(for: urlRequest)
+                    
+                    guard let httpResponse = response as? HTTPURLResponse else {
+                        promise(.failure(.invalidResponse))
+                        return
+                    }
+                    
+                    if 200...299 ~= httpResponse.statusCode {
+                        promise(.success(()))
+                    } else if httpResponse.statusCode == 401 {
+                        promise(.failure(.authenticationFailed))
+                    } else {
+                        promise(.failure(.requestFailed))
+                    }
+                } catch {
+                    if let networkError = error as? PKSNetworkError {
+                        promise(.failure(networkError))
+                    } else {
+                        promise(.failure(.unknown))
+                    }
+                }
+            }
+        }.eraseToAnyPublisher()
+    }
+    
+    /// Sends a network request without expecting any response data and returns the status code asynchronously.
+    ///
+    /// - Parameter request: The request to be sent.
+    /// - Returns: The status code.
+    /// - Throws: A PKSNetworkError if the request fails.
+    public func send<P: Encodable>(_ request: PKSRequest<P>) async throws {
+        do {
+            let urlRequest = try await self.createURLRequest(from: request)
+            let (_, response) = try await session.data(for: urlRequest)
+            
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw PKSNetworkError.invalidResponse
+            }
+            
+            if 200...299 ~= httpResponse.statusCode {
+                return
+            } else if httpResponse.statusCode == 401 {
+                throw PKSNetworkError.authenticationFailed
+            } else {
+                throw PKSNetworkError.requestFailed
+            }
+        } catch {
+            if let networkError = error as? PKSNetworkError {
+                throw networkError
+            } else {
+                throw PKSNetworkError.unknown
+            }
+        }
+    }
+    
     /// Creates a URLRequest from a PKSRequest.
     ///
     /// - Parameter request: The PKSRequest to convert.
