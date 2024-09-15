@@ -33,7 +33,7 @@ public struct PKSMessageBubble: View {
                 
             }
             if let user = message.user {
-                PKSAvatar(avatar: user, size: .small, configuration: configuration)
+//                PKSAvatar(avatar: user, size: .small, configuration: configuration)
             }
         }
     }
