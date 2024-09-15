@@ -1,6 +1,6 @@
 # End Session Instructions
 
-1. Create a new file: `.ai/status/YYYY-MM-DD.md`
+1. Create a new file: `.ai/status/YYYY-MM-DD-HH-MM-SS-TZ.md`
 
 2. Structure the update with sections:
 
