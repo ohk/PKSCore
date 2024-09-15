@@ -22,28 +22,19 @@ let package = Package(
         .package(url: "https://github.com/kean/Nuke.git", from: "12.8.0")
     ],
     targets: [
+        .target(name: "PKSFoundation"),
         .target(
             name: "PKSUICore",
             dependencies: [
                 .product(name: "Nuke", package: "Nuke"),
                 .product(name: "NukeUI", package: "Nuke"),
                 .target(name: "PKSFoundation")
-            ],
-            path: "PKSUICore/Sources"
-        ),
-        .target(
-            name: "PKSFoundation",
-            dependencies: [],
-            path: "PKSFoundation/Sources"
+            ]
         ),
         .target(
             name: "PKSNetwork",
-            dependencies: [
-                .target(name: "PKSFoundation")
-            ],
-            path: "PKSNetwork/Sources"
+            dependencies: [.target(name: "PKSFoundation")]
         ),
-       
         .testTarget(
             name: "PKSUICoreTests",
             dependencies: ["PKSUICore", "PKSFoundation"]),
