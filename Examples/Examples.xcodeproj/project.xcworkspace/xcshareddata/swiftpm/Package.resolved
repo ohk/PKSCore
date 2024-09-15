@@ -1,0 +1,24 @@
+{
+  "originHash" : "d9f7e58af2f2fe880f9062aa606bfc5fb9e1b53fc5c62dc1774d37a402c03765",
+  "pins" : [
+    {
+      "identity" : "nuke",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/kean/Nuke.git",
+      "state" : {
+        "revision" : "0ead44350d2737db384908569c012fe67c421e4d",
+        "version" : "12.8.0"
+      }
+    },
+    {
+      "identity" : "pkscore",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ohk/PKSCore.git",
+      "state" : {
+        "revision" : "57c381ebb52f0e2943c05567399d05f8990c0e04",
+        "version" : "0.3.2"
+      }
+    }
+  ],
+  "version" : 3
+}
